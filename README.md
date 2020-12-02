@@ -1,10 +1,10 @@
 # Funktionen des Web-Services
-Mit diesem Web-Service kann man sich eine Begrüßung ausgeben lassen, welche wiefolgt aussieht: **Hallo "Name"**
+Mit diesem Web-Service kann man sich eine Begrüßung ausgeben lassen, welche wie folgt, aussieht: **Hallo "Name"**
 
 # Wie startet man den Service
-Um den Service zu starten, muss man die Jave Version 8 auswählen, da es mit den anderen meines Wissens nach nicht 
+Um den Service zu starten, muss man die Java Version 8 auswählen, da es mit den anderen meines Wissens nach nicht 
 funktioniert. Nun kann man ganz einfach die Main Klasse ausführen oder den Befehl `mvn sprint-boot:run`
-benutzen. Somit wird der Server auf dem localhost gestartet und ist unter http://localhost:8080/ws erriechbar.
+benutzen. Somit wird der Server auf dem localhost gestartet und ist unter http://localhost:8080/ws erreichbar.
 
 # Anfrage auf den Server
 Um eine Anfrage auf den Server zu schicken, erstellt man zunächst eine Datei mit der Endung .xml; Optional kann man
