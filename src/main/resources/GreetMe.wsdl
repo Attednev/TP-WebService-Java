@@ -1,0 +1,61 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+
+             name="MeinService"
+             targetNamespace="http://localhost/services/">
+    <types>
+        <xs:schema elementFormDefault="qualified" targetNamespace="http://localhost/services/">
+            <xs:element name="GreetMeRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="name" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="GreetMeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="greeting" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </types>
+
+    <message name="GreetMeRequest">
+        <part name="parameter" element="GreetMeRequest" />
+    </message>
+    <message name="GreetMeResponse">
+        <part name="parameter" element="GreetMeResponse"/>
+    </message>
+
+    <portType name="GreetMePort">
+        <operation name="greet">
+            <documentation>Sends you a greeting :)</documentation>
+            <input message="GreetMeRequest" />
+            <output message="GreetMeResponse" />
+        </operation>
+    </portType>
+    
+    <binding name="GreetMeBinding" type="GreetMePort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/http" />
+        <operation name="greet">
+            <soap:operation soapAction="greet" style="document"/>
+            <input name="GreetMeRequest">
+                <soap:body use="literal" />
+            </input>
+            <output name="GreetMeResponse">
+                <soap:body use="literal" />
+            </output>
+        </operation>
+    </binding>
+
+    <service name="GreetMeService">
+        <port name="GreetMePort" binding="GreetMeBinding">
+            <soap:address location="http://localhost/ws" />
+        </port>
+    </service>
+
+</definitions>
